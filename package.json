@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Bocahapel/node-natours-api-practice/issues"
   },
-  "homepage": "https://github.com/Bocahapel/node-natours-api-practice#readme"
+  "homepage": "https://github.com/Bocahapel/node-natours-api-practice#readme",
+  "dependencies": {
+    "express": "^4.22.1"
+  }
 }
