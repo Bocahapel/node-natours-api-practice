@@ -22,13 +22,14 @@ const tours = JSON.parse(
 //===========
 //Get endpoint
 //===========
-app.get('/api/v1/tours', (req, res) => {
+app.get('/api/v1/tours/:id', (req, res) => {
+  console.log(req.params);
   res.status(200).json({
     message: 'success',
-    result: tours.length,
-    data: {
-      tours,
-    },
+    // result: tours.length,
+    // data: {
+    //   tours,
+    // },
   });
 });
 
