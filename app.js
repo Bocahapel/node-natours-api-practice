@@ -5,6 +5,7 @@ const app = express();
 
 app.use(express.json()); //middleware
 const port = 3000; //port
+
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`),
 ); //to read from file into json
@@ -14,6 +15,15 @@ app.get('/api/v1/tours', (req, res) => {
   res.status(200).json({
     status: 'Success',
     data: { tours },
+  });
+});
+
+//get by id
+app.get('/api/v1/tours/:id', (req, res) => {
+  const tour = tours.find((el) => el.id === req.params);
+  res.status(200).json({
+    status: 'Success',
+    // data: { tours },
   });
 });
 
