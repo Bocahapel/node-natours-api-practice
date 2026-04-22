@@ -44,6 +44,7 @@ app.post('/api/v1/tours', (req, res) => {
   res.send('Done');
 });
 
+//port 3000
 app.listen(port, () => {
   console.log(`App running on port: ${port}...`);
 });
