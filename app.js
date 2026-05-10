@@ -80,19 +80,26 @@ const deleteData = (req, res) => {
 };
 
 //get
-app.get('/api/v1/tours', getAll);
+// app.get('/api/v1/tours', getAll);
 
 //get by id
-app.get('/api/v1/tours/:id', getById);
+// app.get('/api/v1/tours/:id', getById);
 
 //patch
-app.patch('/api/v1/tours/:id', updateData);
+// app.patch('/api/v1/tours/:id', updateData);
 
 //post
-app.post('/api/v1/tours', addData);
+// app.post('/api/v1/tours', addData);
 
 // delete
-app.delete('/api/v1/tours/:id', deleteData);
+// app.delete('/api/v1/tours/:id', deleteData);
+
+app.route('/api/v1/tours').get(getAll).post(addData);
+app
+  .route('/api/v1/tours/:id')
+  .get(getById)
+  .patch(updateData)
+  .delete(deleteData);
 
 //port 3000
 app.listen(port, () => {
