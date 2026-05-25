@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "node server.js",
+    "start": "node server.js",
     "start:prod": "NODE_ENV=roduction node server.js"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Bocahapel/node-natours-api-practice#readme",
   "dependencies": {
     "dotenv": "^17.4.2",
-    "express": "^4.22.1"
+    "express": "^4.22.1",
+    "mongoose": "^5.13.23"
   }
 }
