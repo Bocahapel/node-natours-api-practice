@@ -8,18 +8,28 @@ const DB = process.env.DATABASE.replace(
   process.env.DATABASE_PASSWORD,
 );
 
+//old mongoose
+// mongoose
+//   .connect(DB, {
+//     useNewUrlParser: true,
+//     useCreateIndex: true,
+//     useFindAndModify: false,
+//   })
+//   .then((con) => {
+//     // console.log(con.connection);
+//     console.log('DB connection success');
+//   });
+
 mongoose
   .connect(DB, {
     useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
+    useUnifiedTopology: true,
   })
-  .then((con) => {
-    console.log(con.connection);
+  .then(() => {
     console.log('DB connection success');
   });
 
-console.log(process.env);
+// console.log(process.env);
 const port = process.env.PORT || 3000; //port
 
 //port 3000
