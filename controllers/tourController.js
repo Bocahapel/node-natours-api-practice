@@ -62,11 +62,22 @@ exports.getById = async (req, res) => {
   }
 };
 
-exports.updateData = (req, res) => {
-  res.status(200).json({
-    status: 'success',
-    data: { message: '<Updated Data>' },
-  });
+exports.updateData = async (req, res) => {
+  try {
+    const tour = await Tour.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    res.status(200).json({
+      status: 'success',
+      data: { tour },
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: 'Failed',
+      message: err.message,
+    });
+  }
 };
 
 exports.addData = async (req, res) => {
