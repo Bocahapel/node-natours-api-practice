@@ -109,6 +109,14 @@ exports.addData = async (req, res) => {
 // );
 // };
 
-exports.deleteData = (req, res) => {
-  res.status(204).json({ status: 'success', data: null });
+exports.deleteData = async (req, res) => {
+  try {
+    const tour = await Tour.findByIdAndDelete(req.params.id);
+    res.status(204).json({ status: 'success', data: { tour } });
+  } catch (err) {
+    res.status(404).json({
+      status: 'failed',
+      message: err,
+    });
+  }
 };
